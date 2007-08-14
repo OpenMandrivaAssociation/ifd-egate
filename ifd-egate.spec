@@ -1,6 +1,6 @@
 %define name            ifd-egate
 %define version         0.05
-%define release         %mkrel 1
+%define release         %mkrel 2
 
 Name:	 %{name}
 Version: %{version}
@@ -11,7 +11,8 @@ Group:   System/Libraries
 Source0: %{name}-%{version}.tar.bz2
 Patch0:	 %{name}-Makefile.patch.bz2
 Patch1:	 %{name}-egatec.patch.bz2
-URL:     http://intra.euclide.com
+Patch2:	 %{name}-responsecode.patch
+URL:     http://secure.netroedge.com/~phil/egate/
 BuildRequires: libpcsclite1
 Requires: pcsc-lite
 BuildRoot: %{_tmppath}/%{name}-buildroot
@@ -27,6 +28,7 @@ rm -rf $RPM_BUILD_ROOT
 %setup -q -n  %{name}-%{version}
 %patch0 -p0
 %patch1 -p0
+%patch2 -p0
 
 %build
 %make
