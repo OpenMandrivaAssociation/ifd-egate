@@ -15,6 +15,7 @@ Patch2:	 %{name}-responsecode.patch
 URL:     http://secure.netroedge.com/~phil/egate/
 BuildRequires: libpcsclite1 pcsc-lite-devel
 Requires: pcsc-lite
+BuildRoot: %{_tmppath}/%{name}-buildroot
 
 %description
 This library provides a PC/SC IFD handler implementation 
