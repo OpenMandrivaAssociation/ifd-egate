@@ -13,7 +13,7 @@ Patch0:	 %{name}-Makefile.patch.bz2
 Patch1:	 %{name}-egatec.patch.bz2
 Patch2:	 %{name}-responsecode.patch
 URL:     http://secure.netroedge.com/~phil/egate/
-BuildRequires: libpcsclite1 pcsc-lite-devel
+BuildRequires: libpcsclite1 pcsc-lite-devel usb-devel
 Requires: pcsc-lite
 BuildRoot: %{_tmppath}/%{name}-buildroot
 
