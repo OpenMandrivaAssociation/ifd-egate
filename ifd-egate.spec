@@ -1,31 +1,28 @@
-%define name            ifd-egate
-%define version         0.05
-%define release         %mkrel 3
-
-Name:	 %{name}
-Version: %{version}
-Release: %{release}
-Summary: PC/SC drivers for USB egate smart cart readers
-License: GPL
-Group:   System/Libraries
-Source0: %{name}-%{version}.tar.bz2
-Patch0:	 %{name}-Makefile.patch.bz2
-Patch1:	 %{name}-egatec.patch.bz2
-Patch2:	 %{name}-responsecode.patch
-URL:     http://secure.netroedge.com/~phil/egate/
-BuildRequires: libpcsclite1 pcsc-lite-devel usb-devel
-Requires: pcsc-lite
-BuildRoot: %{_tmppath}/%{name}-buildroot
+Name:		ifd-egate
+Version:	0.05
+Release:	%{mkrel 3}
+Summary:	PC/SC drivers for USB egate smart cart readers
+License:	BSD or LGPLv2+
+Group:		System/Libraries
+Source0:	http://secure.netroedge.com/~phil/egate/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-Makefile.patch
+Patch1:		%{name}-egatec.patch
+Patch2:		%{name}-responsecode.patch
+URL:		http://secure.netroedge.com/~phil/egate/
+BuildRequires:	pcsc-lite-devel
+BuildRequires:	libusb-devel
+Requires:	pcsc-lite
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
-This library provides a PC/SC IFD handler implementation 
-for the USB egate smart card readers.  This package is 
-needed to communicate with the egate smartcard readers 
-through the PC/SC Lite resource manager (pcscd).
+This library provides a PC/SC IFD handler implementation for the USB
+egate smart card readers.  This package is needed to communicate with
+the egate smartcard readers through the PC/SC Lite resource manager
+(pcscd).
 
 %prep
-rm -rf $RPM_BUILD_ROOT
-%setup -q -n  %{name}-%{version}
+rm -rf %{buildroot}
+%setup -q
 %patch0 -p0
 %patch1 -p0
 %patch2 -p0
@@ -34,17 +31,17 @@ rm -rf $RPM_BUILD_ROOT
 %make
 
 %install
-mkdir -p $RPM_BUILD_ROOT%_defaultdocdir/%{name}-%{version}
-mkdir -p $RPM_BUILD_ROOT%_libdir/pcsc/drivers/ifd-egate.bundle/Contents/Linux
-install -m 644 Info.plist $RPM_BUILD_ROOT%_libdir/pcsc/drivers/ifd-egate.bundle/Contents
-install -m 755 libifd_egate.so  $RPM_BUILD_ROOT%_libdir/pcsc/drivers/ifd-egate.bundle/Contents/Linux
-install -m 644 ChangeLog COPYRIGHT COPYING.LIB LICENSE PROTOCOL README $RPM_BUILD_ROOT%_defaultdocdir/%{name}-%{version}
+mkdir -p %{buildroot}%_defaultdocdir/%{name}-%{version}
+mkdir -p %{buildroot}%_libdir/pcsc/drivers/ifd-egate.bundle/Contents/Linux
+install -m 644 Info.plist %{buildroot}%_libdir/pcsc/drivers/ifd-egate.bundle/Contents
+install -m 755 libifd_egate.so  %{buildroot}%_libdir/pcsc/drivers/ifd-egate.bundle/Contents/Linux
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%_libdir/pcsc/drivers/ifd-egate.bundle/Contents
-%_libdir/pcsc/drivers/ifd-egate.bundle/Contents/Linux
-%_defaultdocdir/%{name}-%{version}
+%doc ChangeLog COPYRIGHT LICENSE PROTOCOL README
+%{_libdir}/pcsc/drivers/ifd-egate.bundle/Contents
+
+
