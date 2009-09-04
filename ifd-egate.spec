@@ -1,6 +1,6 @@
 Name:		ifd-egate
 Version:	0.05
-Release:	%{mkrel 3}
+Release:	%{mkrel 4}
 Summary:	PC/SC drivers for USB egate smart cart readers
 License:	BSD or LGPLv2+
 Group:		System/Libraries
