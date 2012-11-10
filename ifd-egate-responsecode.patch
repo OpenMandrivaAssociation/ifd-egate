@@ -1,0 +1,13 @@
+--- ifdhandler.h.old	2007-08-15 00:18:37.000000000 +0200
++++ ifdhandler.h	2007-08-15 00:19:00.000000000 +0200
+@@ -138,6 +138,10 @@
+ #define IFD_ICC_PRESENT			615
+ #define IFD_ICC_NOT_PRESENT		616
+ 
++#ifndef RESPONSECODE_DEFINED_IN_WINTYPES_H
++        typedef long RESPONSECODE;
++#endif
++
+ 	/*
+ 	 * List of Defined Functions Available to IFD_Handler 2.0 
+ 	 */

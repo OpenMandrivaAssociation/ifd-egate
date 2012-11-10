@@ -1,0 +1,11 @@
+--- Makefile.old	2006-04-06 00:06:15.000000000 +0200
++++ Makefile	2006-04-05 23:41:55.000000000 +0200
+@@ -1,7 +1,7 @@
+ libifd_egate.so: egate.o ifdhandler.o
+ 	$(CC) -shared $(LDFLAGS) -o $@ egate.o ifdhandler.o -lusb 
+ 
+-CFLAGS=-fPIC $(PCSC_CFLAGS) $(USB_CFLAGS) -g
++CFLAGS=-fPIC $(PCSC_CFLAGS) $(USB_CFLAGS) -g -I/usr/include/PCSC
+ LDFLAGS=$(PCSC_LDFLAGS) $(USB_LDFLAGS)
+ 
+ clean::
