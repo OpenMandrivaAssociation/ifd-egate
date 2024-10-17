@@ -8,7 +8,7 @@ Source0:	http://secure.netroedge.com/~phil/egate/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-egatec.patch
 Patch2:		%{name}-responsecode.patch
-URL:		http://secure.netroedge.com/~phil/egate/
+URL:		https://secure.netroedge.com/~phil/egate/
 BuildRequires:	pcsc-lite-devel
 BuildRequires:	pkgconfig(libusb)
 Requires:	pcsc-lite
