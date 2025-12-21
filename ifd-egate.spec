@@ -9,6 +9,7 @@ Patch0:		%{name}-Makefile.patch
 Patch1:		%{name}-egatec.patch
 Patch2:		%{name}-responsecode.patch
 URL:		https://secure.netroedge.com/~phil/egate/
+BuildRequires:	make
 BuildRequires:	pcsc-lite-devel
 BuildRequires:	pkgconfig(libusb)
 Requires:	pcsc-lite
